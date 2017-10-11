@@ -36,8 +36,11 @@ public class ButtonGridAndTextView extends GridLayout {
             dropButtons[fRow] = new Button( context);
             dropButtons[fRow].setOnClickListener(listener);
             dropButtons[fRow].setBackgroundColor(Color.BLACK);
-
+            dropButtons[fRow].setTextSize((int) (width * .2));
             addView( dropButtons[fRow], width, width);
+            dropButtons[fRow].setText("▼");
+            dropButtons[fRow].setGravity(Gravity.CENTER);
+            dropButtons[fRow].setTextColor(Color.RED);
             dropButtons[fRow].getLayoutParams().width = (int) (width * .9);
             dropButtons[fRow].getLayoutParams().height = (int) (width * .9);
         }
@@ -102,7 +105,7 @@ public class ButtonGridAndTextView extends GridLayout {
     public void resetButtons() {
         for(int row=0; row< vSide; row++){
             for(int col = 0; col < hSide; col++){
-                buttons[row][col].setText("");
+                buttons[row][col].setBackgroundResource(android.R.drawable.btn_default);
             }
         }
     }
